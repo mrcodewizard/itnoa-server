@@ -10,7 +10,6 @@ const { env } = require("process");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/public"));
 
 /*  build client and server index.html at start */
 if (process.env.NODE_ENV === "production") {
