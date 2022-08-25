@@ -1,0 +1,71 @@
+@import "../../global/global.scss";
+
+.header {
+    &-secondary {
+        background-color: $secondary;
+    }
+
+    &-top {
+        padding: rem(10) rem(0);
+        & > .row {
+            align-items: center;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                .header-top-icon {
+                    background-color: $primary;
+                }
+                span svg { 
+                    color: $white;
+                    opacity: 1;
+                }
+            }
+        }
+        &-icon {
+            width: rem(36);
+            height: rem(36);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            background-color: $saphire;
+            margin-right: rem(10);
+
+            @include media-breakpoint-down(xl) {
+                width: rem(24);
+                height: rem(24);
+                border-radius: 50%;
+            }
+
+            span svg {
+                height: 18px;
+                width: 18px;
+                color: #fff;
+                opacity: 0.6;
+
+                @include media-breakpoint-down(xl) {
+                    width: rem(16);
+                    height: rem(16);
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        p {
+            color: $white;
+            font-size: rem(14);
+            opacity: .7;
+            margin-bottom: 0;
+
+            @include media-breakpoint-down(xl) {
+                font-size: rem(12);
+            }
+        }
+    }
+
+}

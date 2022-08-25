@@ -1,0 +1,147 @@
+@import "../../global/global.scss";
+.hero-banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: rem(200) rem(0);
+    position: relative;
+    z-index: 1;
+
+    @include media-breakpoint-up(xs) {
+        padding: rem(40) rem(0);
+        height: auto;
+    }
+
+    @include media-breakpoint-up(md) {
+        padding: rem(200) rem(0);
+        min-height: 82vh;
+        height: auto;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 2;
+    }
+
+    &-body {
+        position: relative;
+        z-index: 3;
+        color: $white;
+        text-align: center;
+    }
+    &-content {
+        @include media-breakpoint-up(sm) {
+            max-width: rem(500);
+            margin: 0 auto;
+        }
+        @include media-breakpoint-up(md) {
+            max-width: rem(850);
+            margin: 0 auto;
+        }
+    }
+
+    &-title {
+        font-size: rem(48);
+        font-weight: 700;
+        margin: rem(15) rem(0);
+
+        @include media-breakpoint-up(xs) {
+            font-size: rem(28);
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: rem(48);
+        }
+
+    }
+
+    &-desc {
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: rem(28);
+        letter-spacing: rem(1.2);
+
+        @include media-breakpoint-up(xs) {
+            font-size: rem(14);
+            list-style: rem(22);
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: rem(16);
+            line-height: rem(28);
+        }
+    }
+
+    &-bottom {
+        margin: rem(40) rem(0);
+
+        .btn-more {
+            padding: rem(15) rem(40);
+            border-radius: rem(30);
+            font-size: rem(16);
+            font-weight: 500;
+
+            @include media-breakpoint-up(xs) {
+                padding: rem(12) rem(30);
+                border-radius: rem(20);
+                font-size: rem(14);
+            }
+    
+            @include media-breakpoint-up(md) {
+                padding: rem(15) rem(40);
+                border-radius: rem(30);
+                font-size: rem(16);
+            }
+        }
+    }
+    &-scroll {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: -130px;
+        height: 160px;
+        width: 160px;
+        background: #fff;
+        transform: rotate(45deg);
+        border-radius: 30px;
+        z-index: 100;
+
+        @include media-breakpoint-up(xs) {
+            height: 120px;
+            width: 120px;
+            bottom: -140px;
+        }
+
+        @include media-breakpoint-up(md) {
+            bottom: -130px;
+            height: 160px;
+            width: 160px;
+        }
+
+        .btn-bottom {
+            background-color: transparent;
+            color: $primary;
+            border: none;
+            box-shadow: none;
+            outline: none;
+
+            &:active:focus {
+                box-shadow: none;
+            }
+
+            svg {
+                transform: rotate(90deg);
+                margin: 15px 9px;            
+                color: $primary;
+            }
+        }
+    }
+}
