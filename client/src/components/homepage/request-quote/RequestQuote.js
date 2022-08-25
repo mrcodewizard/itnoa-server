@@ -27,7 +27,7 @@ function RequestQuote() {
   const submitForm = (evt) => {
     evt.preventDefault();
     axios
-      .post(`${SERVER_URL}/send-email`, value)
+      .post("/send-email", value)
       .then((res) => {
         setError([]);
         setSuccess(res.data.success);

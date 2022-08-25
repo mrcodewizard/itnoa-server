@@ -12,20 +12,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 
-/* serve index.html on app start */
-app.get("/", (req, res) => {
-  res.sendFile("index.html");
-});
+/*  build client and server index.html at start */
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, "/client")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+  });
+}
 
 app.use("/send-email", checkSchema(contactUsValidator), contactUs);
-
-// if (process.env.NODE_ENV === "production") {
-//   // Set static folder
-//   app.use(express.static(path.join(__dirname, "/client")));
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "/client/build", "index.html"));
-//   });
-// }
 
 const port = process.env.PORT | 4000;
 app.listen(port, () => {
