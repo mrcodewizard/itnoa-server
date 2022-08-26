@@ -6,7 +6,6 @@ app.use(cors());
 const contactUs = require("./routes/contactUs");
 const { contactUsValidator } = require("./controllers/contactUs");
 const { body, validationResult, checkSchema } = require("express-validator");
-const { env } = require("process");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
